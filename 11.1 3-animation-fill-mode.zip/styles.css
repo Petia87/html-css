@@ -1,0 +1,145 @@
+/* 
+animation-fill-mode:what values are 
+applied by the animation outside 
+the time it is executing
+
+*/
+div {
+  width: 200px;
+  height: 100px;
+  color: white;
+  margin: 10px;
+}
+
+.animation {
+  background: blue;
+  animation: move 5s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(200px);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateX(-100px);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(20px);
+    opacity: 0.5;
+  }
+}
+/* .....................*/
+body {
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding:10px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+
+div.simple {
+  width: 80%;
+  height: 40px;
+  background-color: orange;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  animation-name: simple;
+  animation-duration: 5s;
+}
+
+@keyframes simple {
+  from {background-color: orange; color: black;}
+  to {background-color: green; color: white;}
+}
+/* .....................*/
+div.percentage {
+  width: 80%;
+  height: 40px;
+  background-color: orange;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  animation-name: percentage;
+  animation-duration: 1s;
+}
+
+@keyframes percentage {
+  0% {background-color: orange;}
+  25% {background-color: green; color: white;}
+  50% {background-color: white; color: black;}
+  100% {background-color: red; color: white;}
+}
+/* .....................*/
+div.move {
+  width: 100px;
+  height: 100px;
+  color: #000000;
+  background-color: orange;
+  padding: 10px;
+  border-radius: 4px;
+  position: relative;
+  text-align: center;
+  animation-name: move;
+  animation-duration: 5s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes move {
+ 0% {background-color: orange; left: 0px; top: 0px;}
+ 25% {background-color: green; color: white; left:200px; top:0px;}
+ 50% {background-color: red; color: white; left:200px; top:200px;}
+ 75% {background-color: white; color: black; left:0px; top:200px;}
+ 100% {background-color: yellow; color: black; left:0px; top:0px;}
+}
+/* .....................*/
+div.speed {
+  width: 100px;
+  height: 50px;
+  color: #000000;
+  background-color: orange;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 4px;
+  position: relative;
+  text-align: center;
+  animation: move 5s infinite;
+}
+div#linear {
+ animation-timing-function: linear;
+}
+div#ease {
+ animation-timing-function: ease;
+}
+div#easeIn {
+ animation-timing-function: ease-in;
+}
+div#easeOut {
+ animation-timing-function: ease-out;
+}
+div#easeInOut {
+ animation-timing-function: ease-in-out;
+}
+div#custom {
+ animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+
+@keyframes move {
+ 0% {background-color: orange; left: 0px; top: 0px;}
+ 100% {background-color: green; color: white; left: 300px; top: 0px;}
+}
